@@ -5,6 +5,7 @@
     --cyan: hsl(172, 67%, 45%);
     --Verydark: hsl(183, 100%, 15%);
     --Darkgrayish: hsl(186, 14%, 43%);
+    --Darkgrayish2: hsl(187, 15%, 45%);
     --Grayish: hsl(184, 14%, 56%);
     --GrayishMe: hsla(188, 14%, 56%, 0.212);
     --Lightgrayish: hsl(185, 41%, 84%);
@@ -37,7 +38,7 @@ input:focus{
     background-color: var(--GrayishMe);
     border: none;
     padding: 10px;
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-weight: 700;
     color: var(--Darkgrayish);
     text-align: right;
@@ -52,7 +53,7 @@ main{
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.651);
 }
 .count{
-    padding-right: 10px;
+    padding-right: 20px;
 }
 .count > p{
     color: var(--Darkgrayish);
@@ -84,7 +85,25 @@ main{
     color: var(--Verydark);
     font-weight: 700;
 }
-
+.NumP{
+    position: relative;
+}
+img{
+    position: absolute;
+    bottom: 25%;
+    width: 25px;
+    left: 1.9%
+}
+.dollar{
+    position: relative;
+}
+.dollarText{
+    color: var(--Darkgrayish);
+    font-size: 1.7rem;
+    position: absolute;
+    bottom: 10%;
+    left: 1.9%
+}
 .price{
     padding-left: 10px;
     background-color: var(--Verydark);
@@ -100,9 +119,7 @@ main{
     justify-content: space-between;
     color: white;
 }
-.info:first-child{
-    padding-top: 0px;
-}
+
 
 .info span{
     font-size: 1rem;
@@ -112,13 +129,13 @@ main{
 #reset{
     position: absolute;
     bottom: 20px;
-    left: 25%;
+    left: 10%;
     color: var(--Verydark);
     font-size: 1.2rem;
     text-align: center;
     padding: 5px;
     border-radius: 10px;
-    width: 50%;
+    width: 80%;
     
 }
 

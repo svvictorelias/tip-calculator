@@ -3,13 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 <body>
   <main>
     <div class="count">
       <p>Bill</p>
-      <input type="text" id="bill">
+      <div class="dollar">
+        <input type="text" id="bill">
+        <span class="dollarText">$</span>
+      </div>
       <p>Select Tip %</p>
       <div class="percent">
         <button>5%</button>
@@ -20,7 +24,10 @@
         <button id="custom">Custom</button>
       </div>
       <p>Number of People</p>
-      <input type="number" id="people">
+      <div class="NumP">
+        <img src="images/user.png" alt="user-image">
+        <input type="number" id="people">
+      </div>
     </div>
     <div class="price">
         <div class="info">
