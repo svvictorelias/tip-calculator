@@ -90,6 +90,8 @@ main{
     background-color: var(--Verydark);
     border-radius: 10px;
     padding: 15px;
+    position: relative;
+    width: 100%;
 }
 
 .info{
@@ -108,11 +110,15 @@ main{
 }
 
 #reset{
+    position: absolute;
+    bottom: 20px;
+    left: 25%;
     color: var(--Verydark);
     font-size: 1.2rem;
     text-align: center;
     padding: 5px;
     border-radius: 10px;
+    width: 50%;
     
 }
 
