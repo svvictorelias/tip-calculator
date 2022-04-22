@@ -1,0 +1,88 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@1,400;1,700&display=swap');
+
+:root{
+    --cyan: hsl(172, 67%, 45%);
+    --Verydark: hsl(183, 100%, 15%);
+    --Darkgrayish: hsl(186, 14%, 43%);
+    --Grayish: hsl(184, 14%, 56%);
+    --GrayishMe: hsla(188, 14%, 56%, 0.212);
+    --Lightgrayish: hsl(185, 41%, 84%);
+    --Verylight: hsl(189, 41%, 97%);
+}
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Space Mono', Arial, Helvetica, sans-serif;
+    font-weight: 700;
+}
+body{
+    display: grid;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--Lightgrayish);
+    align-items: center;
+    justify-content: center;
+
+}
+button{
+    cursor: pointer;
+}
+#people,#reset, #bill{
+    width: 100%;
+    background-color: var(--GrayishMe);
+    border: none;
+    padding: 10px;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--Darkgrayish);
+    text-align: right;
+}
+
+main{
+    display: grid;
+    background-color: white;
+    grid-template-columns: 1fr 1fr;
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.651);
+}
+.count{
+    padding-right: 10px;
+}
+.count > p{
+    color: var(--Darkgrayish);
+    margin-left: 5px;
+}
+
+.percent{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+.percent > button{
+    background-color: var(--Verydark);
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    margin: 5px;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    font-weight: 400;
+    
+}
+
+.price{
+    padding-left: 10px;
+    background-color: var(--Verydark);
+    border-radius: 10px;
+    padding: 15px;
+}
+.info{
+    display: flex;
+}
+/*.price > button{
+    width: 100%;
+    border-radius: 5px;
+    border: none;
+}
