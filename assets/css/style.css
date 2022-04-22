@@ -29,6 +29,9 @@ body{
 button{
     cursor: pointer;
 }
+input:focus{
+    outline: none;
+}
 #people,#reset, #bill{
     width: 100%;
     background-color: var(--GrayishMe);
@@ -54,6 +57,10 @@ main{
 .count > p{
     color: var(--Darkgrayish);
     margin-left: 5px;
+    margin-top: 20px;
+}
+.count > p:first-child{
+    margin-top: 0px;
 }
 
 .percent{
@@ -72,17 +79,44 @@ main{
     
 }
 
+#custom{
+    background-color: var(--GrayishMe);
+    color: var(--Verydark);
+    font-weight: 700;
+}
+
 .price{
     padding-left: 10px;
     background-color: var(--Verydark);
     border-radius: 10px;
     padding: 15px;
 }
+
 .info{
+    padding-top: 20px;
     display: flex;
+    justify-content: space-between;
+    color: white;
 }
-/*.price > button{
-    width: 100%;
-    border-radius: 5px;
-    border: none;
+.info:first-child{
+    padding-top: 0px;
+}
+
+.info span{
+    font-size: 1rem;
+    color: var(--Darkgrayish);
+}
+
+#reset{
+    color: var(--Verydark);
+    font-size: 1.2rem;
+    text-align: center;
+    padding: 5px;
+    border-radius: 10px;
+    
+}
+
+.pricePerson > span{
+    color: var(--cyan);
+    font-size: 1.7rem;
 }
