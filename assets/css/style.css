@@ -215,3 +215,9 @@ button:focus{
         margin-left: 10%;
     }
 }
+@media only screen and (max-width: 400px){
+    .percent{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+}
