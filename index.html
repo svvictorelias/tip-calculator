@@ -8,9 +8,12 @@
 <body>
   <main>
     <div class="count">
-      <p>Bill</p>
+      <div class="numBillText">
+        <p>Bill</p>
+        <p>Invalid</p>
+      </div>
       <div class="dollar">
-        <input type="text" id="bill">
+        <input type="number" id="bill">
         <span class="dollarText">$</span>
       </div>
       <p>Select Tip %</p>
@@ -22,7 +25,10 @@
         <button class="cinquentaPorcento">50%</button>
         <button class="customPorcento" id="custom">Custom</button>
       </div>
-      <p>Number of People</p>
+      <div class="numPeopleText">
+        <p>Number of People</p>
+        <p>Invalid</p>
+      </div>
       <div class="NumP">
         <img src="images/user.png" alt="user-image">
         <input type="number" id="people">

@@ -36,27 +36,45 @@ function Tip(){
     }
 
     this.realizaConta = porcento =>{
+        this.pricePerson = document.querySelector('#personPrice')
+        this.allPrice = document.querySelector('#allPrice')
         if(!this.validaPessoas() || !this.validaBill()){
-            alert('c')
-            this.bill.value = ''
-            this.people.value = ''
+            if(!this.validaBill()){
+                this.numBillText = document.querySelector('.numBillText > p:last-child')
+                this.numBillText.style = 'display: inline'
+                this.bill.value = ''
+                this.bill.style = 'border: 1px solid red'
+            }
+            if(!this.validaPessoas()){
+                this.numPeopleText = document.querySelector('.numPeopleText > p:last-child')
+                this.numPeopleText.style = 'display: inline'
+                this.people.value = ''
+                this.people.style = 'border: 1px solid red'
+            }
+            this.pricePerson.innerText = '$0.00'
+            this.allPrice.innerText = '$0.00'
             return
         }
+        this.numPeopleText = document.querySelector('.numPeopleText > p:last-child')
+        this.numPeopleText.style = 'display: none'
+        this.numBillText = document.querySelector('.numBillText > p:last-child')
+        this.numBillText.style = 'display: none'
+        this.people.style = 'border: none'
+        this.bill.style = 'border: none'
         let billConta = this.validaBill()*porcento
-        let pricePerson = document.querySelector('#personPrice')
-        finalPricePerson = billConta.toFixed(2)
-        pricePerson.innerText = (finalPricePerson/this.validaPessoas()).toFixed(2)
-        let allPrice = document.querySelector('#allPrice')
-        allPrice.innerText = finalPricePerson
+        finalPriceAll = billConta.toFixed(2)
+        this.allPrice.innerText = finalPriceAll
+        this.pricePerson.innerText = (finalPriceAll/this.validaPessoas()).toFixed(2)
     }
 
-    this.cincoPorcento = () => this.realizaConta(0.05)
+    this.cincoPorcento = () => {
+        this.realizaConta(0.05)
+        this
+    }
     this.dezPorcento = () => this.realizaConta(0.10)
     this.quinzePorcento = () => this.realizaConta(0.15)
     this.vinteCincoPorcento = () => this.realizaConta(0.25)
     this.cinquentaPorcento = () => this.realizaConta(0.50)
-    
-
 }
 const tip =  new Tip()
 tip.start()

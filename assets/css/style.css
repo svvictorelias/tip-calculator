@@ -31,7 +31,7 @@ button{
     cursor: pointer;
 }
 input:focus{
-    outline: none;
+    outline-color: var(--cyan);
 }
 #people,#reset, #bill{
     width: 100%;
@@ -55,11 +55,28 @@ main{
 .count{
     padding-right: 20px;
 }
-.count > p{
+.count, .numPeopleText > p{
     color: var(--Darkgrayish);
     margin-left: 5px;
     margin-top: 20px;
 }
+.numPeopleText{
+    display: flex;
+    justify-content: space-between;
+}
+.numPeopleText > p:last-child{
+    color: rgb(182, 0, 0);
+    display: none;
+}
+.numBillText{
+    display: flex;
+    justify-content: space-between;
+}
+.numBillText > p:last-child{
+    color: rgb(182, 0, 0);
+    display: none;
+}
+
 .count > p:first-child{
     margin-top: 0px;
 }
@@ -72,7 +89,6 @@ main{
     background-color: var(--Verydark);
     color: white;
     padding: 5px 10px;
-    border: none;
     margin: 5px;
     border-radius: 5px;
     font-size: 1.1rem;
