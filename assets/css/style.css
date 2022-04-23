@@ -30,10 +30,8 @@ body{
 button{
     cursor: pointer;
 }
-input:focus{
-    outline-color: var(--cyan);
-}
-#people,#reset, #bill{
+
+#people, #bill,#customPercentual>div>input{
     width: 100%;
     background-color: var(--GrayishMe);
     border: none;
@@ -43,7 +41,45 @@ input:focus{
     color: var(--Darkgrayish);
     text-align: right;
 }
+#customPercentual{
+    display: flex;
+    justify-content: right;
+    width: 100%;
+    padding-right: 10px;
+}
+#customPercentual>div{
+    position: relative;
+    width: 30%;
+}
+#customPercentual > div >input{
+    width: 100%;
+}
+#customPercentual > div >span{
+    position: absolute;
+    font-size: 1.6rem;
+    top:15%;
+    left: 10px;
+}
 
+#bill:focus,#people:focus,#customPercentual>div>input:focus{
+    outline-color: var(--cyan);
+    color: var(--Verydark);  
+}
+.resetBill:disabled{
+    background-color: var(--GrayishMe);
+    border: none;
+    padding: 10px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--Darkgrayish);
+    cursor: not-allowed;
+}
+.resetBill{
+    background-color: var(--cyan);
+    color: var(--Verydark);
+    cursor: pointer;
+    border: none;
+}
 main{
     display: grid;
     background-color: white;
@@ -93,7 +129,7 @@ main{
     border-radius: 5px;
     font-size: 1.1rem;
     font-weight: 400;
-    
+    border: none;
 }
 #custom{
     background-color: var(--GrayishMe);
@@ -157,4 +193,9 @@ img{
 .pricePerson > span{
     color: var(--cyan);
     font-size: 1.7rem;
+}
+button:focus{
+    background-color: var(--cyan);
+    color: var(--Verydark);
+    font-weight: 700;
 }

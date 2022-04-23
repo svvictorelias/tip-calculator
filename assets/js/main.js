@@ -1,6 +1,11 @@
 function Tip(){
     this.bill = document.querySelector('#bill')
     this.people = document.querySelector('#people')
+    this.pricePerson = document.querySelector('#personPrice')
+    this.allPrice = document.querySelector('#allPrice')
+    this.numPeopleText = document.querySelector('.numPeopleText > p:last-child')
+    this.numBillText = document.querySelector('.numBillText > p:last-child')
+    this.resetBillBtn = document.querySelector('#reset')
     this.start = () =>{
         this.catchClick()
     }
@@ -13,6 +18,7 @@ function Tip(){
             if(el.classList.contains('vinteCincoPorcento')) this.vinteCincoPorcento()
             if(el.classList.contains('cinquentaPorcento')) this.cinquentaPorcento()
             if(el.classList.contains('customPorcento')) this.customPorcento()
+            if(el.classList.contains('resetBill')) this.resetBill()
         })
     }
 
@@ -35,18 +41,27 @@ function Tip(){
         }
     }
 
+    this.resetBill = () => {
+        this.bill.value = ''
+        this.people.value = ''
+        this.pricePerson.innerText = '$0.00'
+        this.allPrice.innerText = '$0.00'
+        this.numPeopleText.style = 'display: none'
+        this.numBillText.style = 'display: none'
+        this.people.style = 'border: none'
+        this.bill.style = 'border: none'
+        this.resetBillBtn.disabled = true
+    }
+
     this.realizaConta = porcento =>{
-        this.pricePerson = document.querySelector('#personPrice')
-        this.allPrice = document.querySelector('#allPrice')
+        this.resetBillBtn.disabled = false
         if(!this.validaPessoas() || !this.validaBill()){
             if(!this.validaBill()){
-                this.numBillText = document.querySelector('.numBillText > p:last-child')
                 this.numBillText.style = 'display: inline'
                 this.bill.value = ''
                 this.bill.style = 'border: 1px solid red'
             }
             if(!this.validaPessoas()){
-                this.numPeopleText = document.querySelector('.numPeopleText > p:last-child')
                 this.numPeopleText.style = 'display: inline'
                 this.people.value = ''
                 this.people.style = 'border: 1px solid red'
@@ -55,16 +70,14 @@ function Tip(){
             this.allPrice.innerText = '$0.00'
             return
         }
-        this.numPeopleText = document.querySelector('.numPeopleText > p:last-child')
         this.numPeopleText.style = 'display: none'
-        this.numBillText = document.querySelector('.numBillText > p:last-child')
         this.numBillText.style = 'display: none'
         this.people.style = 'border: none'
         this.bill.style = 'border: none'
         let billConta = this.validaBill()*porcento
         finalPriceAll = billConta.toFixed(2)
-        this.allPrice.innerText = finalPriceAll
-        this.pricePerson.innerText = (finalPriceAll/this.validaPessoas()).toFixed(2)
+        this.allPrice.innerText = '$'+finalPriceAll
+        this.pricePerson.innerText = '$'+(finalPriceAll/this.validaPessoas()).toFixed(2)
     }
 
     this.cincoPorcento = () => {
