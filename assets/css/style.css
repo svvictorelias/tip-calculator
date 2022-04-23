@@ -27,6 +27,15 @@ body{
     justify-content: center;
 
 }
+main{
+    margin: 15px;
+    display: grid;
+    background-color: white;
+    grid-template-columns: 1fr 1fr;
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.651);
+}
 button{
     cursor: pointer;
 }
@@ -80,14 +89,7 @@ button{
     cursor: pointer;
     border: none;
 }
-main{
-    display: grid;
-    background-color: white;
-    grid-template-columns: 1fr 1fr;
-    padding: 25px;
-    border-radius: 20px;
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.651);
-}
+
 .count{
     padding-right: 20px;
 }
@@ -198,4 +200,18 @@ button:focus{
     background-color: var(--cyan);
     color: var(--Verydark);
     font-weight: 700;
+}
+
+@media only screen and (max-width: 650px){
+    main{
+        grid-template-columns: 1fr;
+    }
+    .price{
+        margin-top: 15px;
+    }
+    #reset{
+        position: static;
+        margin-top: 20px;
+        margin-left: 10%;
+    }
 }
