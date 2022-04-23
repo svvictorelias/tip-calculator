@@ -6,6 +6,9 @@ function Tip(){
     this.numPeopleText = document.querySelector('.numPeopleText > p:last-child')
     this.numBillText = document.querySelector('.numBillText > p:last-child')
     this.resetBillBtn = document.querySelector('#reset')
+    this.customPorcentoInput = document.querySelector('#customPercentual>div>input')
+    this.customPercentualDiv = document.querySelector('#customPercentual')
+
     this.start = () =>{
         this.catchClick()
     }
@@ -42,6 +45,7 @@ function Tip(){
     }
 
     this.resetBill = () => {
+        this.customPorcentoInput.value = ''
         this.bill.value = ''
         this.people.value = ''
         this.pricePerson.innerText = '$0.00'
@@ -50,6 +54,8 @@ function Tip(){
         this.numBillText.style = 'display: none'
         this.people.style = 'border: none'
         this.bill.style = 'border: none'
+        this.customPercentualDiv.style.display = 'none'
+        this.customPorcentoInput.value = ''
         this.resetBillBtn.disabled = true
     }
 
@@ -70,24 +76,38 @@ function Tip(){
             this.allPrice.innerText = '$0.00'
             return
         }
+
         this.numPeopleText.style = 'display: none'
         this.numBillText.style = 'display: none'
         this.people.style = 'border: none'
         this.bill.style = 'border: none'
+        this.customPorcentoInput.style = 'border: none'
+        this.customPercentualDiv.style.display = 'none'
         let billConta = this.validaBill()*porcento
         finalPriceAll = billConta.toFixed(2)
         this.allPrice.innerText = '$'+finalPriceAll
         this.pricePerson.innerText = '$'+(finalPriceAll/this.validaPessoas()).toFixed(2)
     }
 
-    this.cincoPorcento = () => {
-        this.realizaConta(0.05)
-        this
-    }
+    this.cincoPorcento = () => this.realizaConta(0.05)
     this.dezPorcento = () => this.realizaConta(0.10)
     this.quinzePorcento = () => this.realizaConta(0.15)
     this.vinteCincoPorcento = () => this.realizaConta(0.25)
     this.cinquentaPorcento = () => this.realizaConta(0.50)
+
+    this.customPorcento =() => {
+        this.customPercentualDiv.style.display = 'flex'
+        valor = (this.customPorcentoInput.value.replace('e','a'))*.01
+        if(valor <0 || !valor){
+            this.pricePerson.innerText = '$0.00'
+            this.allPrice.innerText = '$0.00'
+            this.customPorcentoInput.style = 'border: 1px solid red'
+            this.customPorcentoInput.value = ''
+            return
+        }
+        this.realizaConta(valor)
+        this.customPercentualDiv.style.display = 'flex'
+    }  
 }
 const tip =  new Tip()
 tip.start()

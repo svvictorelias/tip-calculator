@@ -42,7 +42,7 @@ button{
     text-align: right;
 }
 #customPercentual{
-    display: flex;
+    display: none;
     justify-content: right;
     width: 100%;
     padding-right: 10px;
@@ -56,8 +56,8 @@ button{
 }
 #customPercentual > div >span{
     position: absolute;
-    font-size: 1.6rem;
-    top:15%;
+    font-size: 1.3rem;
+    top:25%;
     left: 10px;
 }
 
