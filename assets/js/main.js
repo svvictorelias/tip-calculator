@@ -15,28 +15,39 @@ function Tip(){
             if(el.classList.contains('customPorcento')) this.customPorcento()
         })
     }
+
     this.validaPessoas =()=>{
         let pessoas = this.people.value.replace('e','a').replace('E','a')
         pessoas = pessoas*1
         if(!pessoas||!Number.isInteger(pessoas)){
-            console.log('erro')
+            return false
         }else{
-            console.log('ok')
+            return pessoas
         }
     }
-    this.realizaConta = porcento =>{
+
+    this.validaBill = () =>{
         let billText = this.bill.value.replace(',','.').replace('e','a').replace('E','a')
-        this.validaPessoas()
-        let billConta = billText*porcento.toFixed(2)
-        if(!billConta || billConta>=100000){
-            alert('erro')
+        if(!billText || billText>=100000 || !Number(billText)){
+            return false
+        }else{
+            return billText
+        }
+    }
+
+    this.realizaConta = porcento =>{
+        if(!this.validaPessoas() || !this.validaBill()){
+            alert('c')
+            this.bill.value = ''
+            this.people.value = ''
             return
         }
-        console.log(billConta)
+        let billConta = this.validaBill()*porcento
         let pricePerson = document.querySelector('#personPrice')
+        finalPricePerson = billConta.toFixed(2)
+        pricePerson.innerText = (finalPricePerson/this.validaPessoas()).toFixed(2)
         let allPrice = document.querySelector('#allPrice')
-        pricePerson.innerText = billConta
-        //allPrice.innerText = billConta.toFixed(2)
+        allPrice.innerText = finalPricePerson
     }
 
     this.cincoPorcento = () => this.realizaConta(0.05)
