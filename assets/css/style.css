@@ -68,7 +68,7 @@ main{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
 }
-.percent > button{
+.percent > button, input{
     background-color: var(--Verydark);
     color: white;
     padding: 5px 10px;
